@@ -30,7 +30,7 @@ const generateBookMarkHtml = function (bookmark) {
         <div class="bookmark-expand js-bookmark-expand-container ${bookmarkExpand}">
           <p>Description: ${bookmark.desc}</p>
           <div class="actions">
-            <button class="link js-link" onclick="window.open(href='${bookmark.url}')">${bookmark.title}</button>
+            <button class="link-button js-lin-buttonk" onclick="window.open(href='${bookmark.url}')">${bookmark.title}</button>
             
             <button class="delete-button js-delete-button"><i class="fa fa-eraser"></i></button>
           </div>
