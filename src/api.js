@@ -5,7 +5,7 @@ function listApiFetch(...args) {
   return fetch(...args)
     .then((res) => {
       if (!res.ok) {
-        // Valid HTTP response but non-2xx status - let's create an error!
+        // Valid HTTP response but if response is outside of the 2xx we need to generate an error.
         error = {
           code: res.status,
         };

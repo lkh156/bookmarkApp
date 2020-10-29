@@ -3,7 +3,7 @@ import api from "./api";
 import "normalize.css";
 import "./index.css";
 import STORE from "./store.js";
-import bookmarks from "./bookmark.js";
+import bookmarks from "./bookmarks.js";
 
 const main = function () {
   api
