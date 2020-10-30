@@ -50,7 +50,7 @@ const generateBookmarkHeader = function () {
   $("#main").html(`
     
     <header role="banner">
-    <h1>Little Bookmark App</h1>
+    <h1>Bookmark App</h1>
   </header>
 <!-- BOOKMARKS CONTROLS-->
   <div class="main-container" role="main">
@@ -161,9 +161,11 @@ const handleBookMarkAdd = function () {
     render();
   });
 };
+
+
 //bookmark form
 const handleBookmarkSubmit = function () {
-  $(".add-bookmark-form").submit(function (event) {
+  $(".add-bookmark-form").on('submit',function (event) {
     event.preventDefault();
 
     let formElement = $(".add-bookmark-form")[0];
@@ -179,12 +181,13 @@ const handleBookmarkSubmit = function () {
         STORE.setError(e.message);
         renderError();
       });
-    render();
+    //render();
   });
 };
 //render
 const render = function () {
   $("#main").html(generateBookmarkHeader());
+  console.log("Why am I broke?", STORE)
   // render bookmark form if adding is true
   if (STORE.adding) {
     //console.log('adding test')
@@ -233,6 +236,7 @@ const handleBookmarkDelete = function () {
       .deleteBookmark(id)
       .then(() => {
         STORE.deleteBookmark(id);
+        console.log("test")
         render();
       })
       .catch((e) => {
