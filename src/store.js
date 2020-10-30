@@ -1,72 +1,49 @@
-let bookmarks = [];
+
+const bookmarks = [];
 let adding = false;
 let error = null;
-let filter = false;
-let filteredBookmarks = [];
+let errorMessage = '';
+let filter = 0;
 
-const addBookmark = function (bookmark) {
-  // adds expand locally
-  for (let i = 0; i < bookmarks.length; i++) {
-    if (bookmarks[i]) {
-      bookmarks[i].expand = false;
-    }
-  }
-  // adds bookmark to store
-  bookmarks.push(bookmark);
-  // toggles adding state
-  this.adding = false;
-};
 
-const expandBookmark = function (id) {
-  //find id to expand
-  let expandedBookmark = bookmarks.find((bookmark) => bookmark.id === id);
-  //toggle expand value
-  if (expandedBookmark.expand) {
-    expandedBookmark.expand = false;
-  } else {
-    expandedBookmark.expand = true;
-  }
-};
+function findBookmarkById(id) {
+   // Takes an id, looks through the array of bookmarks and returns the bookmark with the matching id.
+   let foundItem = bookmarks.find(bookmark => bookmark.id === id);
+   return foundItem;
+}
 
-const deleteBookmark = function (id) {
-  this.bookmarks = this.bookmarks.filter((bookmark) => bookmark.id !== id);
-};
-//toggle adding state in store
-const setAdding = function (param) {
-  this.adding = param;
-};
+function createBookmark(bookmark) {
+  // Takes data in the shape of an object, and creates a new bookmark with that data and then pushes that new item to the store.
+  const newBookmark = {
+    isExpanded: false
+  };
+  bookmarks.push(Object.assign(bookmark, newBookmark));
+  console.log('createBookmark function', bookmarks);
+}
 
-//filters bookmarks in store
-const filterBookmarks = function (filterNumber) {
-  this.filter = true;
-  this.bookmarks.forEach((bookmark) => {
-    if (bookmark.rating >= filterNumber) {
-      this.filteredBookmarks.push(bookmark);
-    }
-  });
-};
+function toggleIsExpanded(id) {
+  let foundItem = findBookmarkById(id);
+  foundItem.isExpanded = !foundItem.isExpanded;
+}
 
-//toggle filter state in store
-const setFiltering = function (param) {
-  this.filter = param;
-};
+function deleteBookmark(id) {
+  // Takes an id, looks through the array of bookmarks and deletes the bookmark with the matching id.
+  let index = bookmarks.findIndex(bookmark => bookmark.id === id);
+  bookmarks.splice(index, 1);
+}
 
-//sets error
-const setError = function (errorMessage) {
-  this.error = errorMessage;
-};
+function setError(value) {
+  this.error = value;
+}
 
 export default {
   bookmarks,
   adding,
   error,
+  errorMessage,
   filter,
-  addBookmark,
-  expandBookmark,
-  deleteBookmark,
-  setAdding,
-  setFiltering,
   setError,
-  filterBookmarks,
-  filteredBookmarks,
+  createBookmark,
+  deleteBookmark,
+  toggleIsExpanded
 };
