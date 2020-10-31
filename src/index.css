@@ -149,6 +149,9 @@ input[type="button"] {
   margin: 0 auto;
   margin-bottom: 20px;
 }
+.error-message{
+  color: red;
+}
 
 .footer-space {
   height: 25px;
