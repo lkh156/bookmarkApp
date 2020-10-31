@@ -29,7 +29,9 @@ function toggleIsExpanded(id) {
 function deleteBookmark(id) {
   // Takes an id, looks through the array of bookmarks and deletes the bookmark with the matching id.
   let index = bookmarks.findIndex(bookmark => bookmark.id === id);
+  console.log(index)
   bookmarks.splice(index, 1);
+  console.log(bookmarks)
 }
 
 function setError(value) {

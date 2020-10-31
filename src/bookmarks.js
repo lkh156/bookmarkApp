@@ -29,20 +29,27 @@ function generateBookmarkElement(bookmark) {
   console.log('bookmark from generateBookmarkElement');
   if (bookmark.rating >= store.filter) {
     if (bookmark.isExpanded) {
-      return `<li class="bookmark" data-bookmark-id="${bookmark.id}">
+      return `
+      <li class="bookmark" data-bookmark-id="${bookmark.id}">
+      <div class="bookmark-title">
         <h3>${bookmark.title}</h3>
         <p>${bookmarkRating}</p>
-      </li>
-      <div>
+      </div>
+      <div class="description">
         <h4>Description</h4>
         ${(bookmark.desc.length === 0) ? '<p>No description.</p>' : `<p>${bookmark.desc}</p>`}
       </div>
-      <button onclick="window.open(href='${bookmark.url}')" type="button">${bookmark.title}</button>
-      <button class="delete-btn js-delete" type="button"><i class="fa fa-eraser"></i></button>`;
+      <div class="expanded">
+        <button onclick="window.open(href='${bookmark.url}')" type="button">${bookmark.title}</button>
+        <button class="delete-btn js-delete" type="button"><i class="fa fa-eraser"></i></button>
+      </div>
+      </li>`;
     } else {
       return `<li class="bookmark" data-bookmark-id="${bookmark.id}">
+      <div class="collapsed">
         <h3>${bookmark.title}</h3>
         <p>${bookmarkRating}</p>
+        </div>
       </li>`;
     }
   }    

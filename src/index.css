@@ -5,46 +5,70 @@ body {
   background-color: black;
 }
 header{
-  color: darkred;
+  color: #2894ff;
 }
 
 h1 {
   text-align: center;
 }
 
-.my-bookmarks {
-  border: darkred solid 2px;
+.my-bookmarks{
+  border: #2894ff solid 2px;
   margin: auto;
   width: 100%;
-  background-color: black;
-  color: darkred;
-  justify-content: center;
-  display:block;
-  padding-bottom: 5px;
+  background-color: #1f242d;
+  color: #2894ff;
+  display: block;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.bookmark {
+  border: #2894ff solid 2px;
+  border-radius: 5px;
+  margin: auto;
+  width: 100%;
+  background-color: #1f242d;
+  color: #2894ff;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.collapsed {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.expanded {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px 15px 10px 15px;
+}
+.description{
+ 
+  justify-content: space-between;
+  padding: 10px 15px 10px 15px;
+}
+.bookmark-title{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .new-bookmark-form {
-  display: block;
-  justify-content: center;
+  display: inline;
+  justify-content: space-between;
 
 }
 
 .bookmark-controls {
-  display: flex;
-  justify-content: center;
+  display: inline;
+  justify-content: space-between;
 }
 
 .bookmark-list {
   padding: 0;
-}
-
-.bookmark {
-  border: darkred solid 1px;
-  margin: 15px 0px 15px 0px;
-  border-radius: 5px;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .bookmark h3 {
@@ -59,7 +83,7 @@ input {
   display: block;
 }
 i {
-  color: darkred;
+  color: #2894ff;
 }
 
 .delete-button {
@@ -82,16 +106,7 @@ i {
   margin-right: 10px;
   box-shadow: 0 1px 0 1px lightgray;
 }
-.edit-button {
-  font-size: 20px;
-  font-family: sans-serif;
-  background-color: slategray;
-  border-radius: 12px;
-  padding: 3px, 7px, 3px, 5px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  box-shadow: 0 1px 0 1px lightgray;
-}
+
 
 .form {
   font-size: 20px;
