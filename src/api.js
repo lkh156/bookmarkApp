@@ -8,16 +8,14 @@ const listApiFetch = function (...args) {
     .then (response => {
       if (!response.ok) {
         error = true;
-        store.setError(true);
-        return response.json();
-      } else {
-        store.setError(false);
-        return response.json();
       }
-      
+        return response.json();
     })
     .then (data => {
       if (!error) {
+        return data;
+      }
+      else {
         return data;
       }
     });
@@ -35,7 +33,14 @@ const addBookmark = function (bookmarkData) {
     body: bookmarkData
   })
 }
-
+const updateBookmark = function (id, updateData) {
+  return listApiFetch(`${BASE_URL}/${id}`,
+  {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: updateData
+  })
+}
 const deleteBookmark = function (id) {
   return listApiFetch(`${BASE_URL}/${id}`, 
   {
@@ -45,5 +50,6 @@ const deleteBookmark = function (id) {
 export default {
   getBookmarks,
   addBookmark,
-  deleteBookmark
+  deleteBookmark,
+  updateBookmark
 };
