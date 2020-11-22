@@ -86,7 +86,7 @@ i {
   color: #2894ff;
 }
 
-.delete-btn, edit-btn {
+.delete-button, edit-btn {
   font-size: 20px;
   font-family: sans serif;
   background-color: slategray;
@@ -96,7 +96,7 @@ i {
   margin-right: 10px;
 }
 
-.link-btn {
+.link-button {
   font-size: 20px;
   font-family: sans-serif;
   background-color: slategray;
